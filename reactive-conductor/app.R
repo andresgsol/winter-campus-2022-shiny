@@ -20,15 +20,11 @@ fib <- function(n) {
 }
 
 server <- function(input, output) {
-  x <- reactive(
-    fib(as.numeric(input$n))
-  )
-  
   output$nthValue    <- renderText({
-    x()
+    fib(as.numeric(input$n))
   })
   output$nthValueInv <- renderText({
-    1 / x()
+    1 / fib(as.numeric(input$n))
   })
 }
 
